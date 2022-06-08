@@ -1,0 +1,21 @@
+header {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin: 4.375rem auto 2.5rem auto;
+}
+
+.header__logo {
+  font-family: var(--ff);
+  font-weight: var(--fw-bold);
+  color: hsla(0, 0%, 100%, 1);
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.9375rem;
+  text-transform: uppercase;
+}
+
+.header__theme {
+  background-color: transparent;
+  border: none;
+}

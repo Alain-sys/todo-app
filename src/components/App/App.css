@@ -7,11 +7,13 @@
 }
 
 :root {
+  --ff: 'Josefin Sans', sans-serif;
+  --fw-regular: 400;
+  --fw-bold: 700;
 }
 
 body {
   background: no-repeat top / 100% url(../../assets/bg-desktop-dark.jpg), hsla(235, 21%, 11%, 1);
-  min-height: 1040px;
 }
 
 body.light {
