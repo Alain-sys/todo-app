@@ -1,0 +1,19 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+}
+
+body {
+  background: no-repeat top / 100% url(../../assets/bg-desktop-dark.jpg), hsla(235, 21%, 11%, 1);
+  min-height: 1040px;
+}
+
+body.light {
+  background: no-repeat top / 100% url(../../assets/bg-desktop-light.jpg), hsla(0, 0%, 98%, 1);
+}
