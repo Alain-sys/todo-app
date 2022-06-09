@@ -1,20 +1,77 @@
 main {
   width: 50%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   margin-bottom: 20rem;
 }
 
-.main__user-value {
-  width: 100%;
+.main__form {
+  display: flex;
+  margin: 3rem 0 1.5rem 0;
+  padding: 0 0 0 24px;
+  gap: 1.5rem;
   border-radius: 5px;
-  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  font-size: 1.125rem;
 }
 
-.main__user-value-dark {
+.main__form-dark {
+  background-color: hsla(235, 24%, 19%, 1);
+  box-shadow: 0px 35px 50px -15px hsla(0, 0%, 0%, 0.5);
+}
+.main__form-light {
+  background-color: hsla(0, 0%, 100%, 1);
+  box-shadow: 0px 35px 50px -15px hsla(235, 19%, 80%, 0.5);
+}
+
+.main__buttons {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.main__input {
+  font-size: 1.125rem;
+  font-weight: 400;
+  border: none;
+  padding: 1.25rem 0 1.25rem 0;
+  width: 90%;
+}
+
+.main__input:focus {
+  outline: transparent;
+}
+
+.main__input-dark {
+  color: hsla(234, 39%, 85%, 1);
   background-color: hsla(235, 24%, 19%, 1);
 }
 
-.main__user-value-light {
+.main__input-light {
+  color: hsla(235, 14%, 26%, 1);
   background-color: hsla(0, 0%, 100%, 1);
+}
+
+.main__input-dark:placeholder {
+  color: hsla(234, 11%, 52%, 1);
+}
+
+.main__input-light:placeholder {
+  color: hsla(235, 9%, 61%, 1);
+}
+
+.main__output {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: 5px;
+}
+
+.main__output-dark {
+  background-color: hsla(235, 24%, 19%, 1);
+  box-shadow: 0px 35px 50px -15px hsla(0, 0%, 0%, 0.5);
+}
+
+.main__output-light {
+  background-color: hsla(0, 0%, 100%, 1);
+  box-shadow: 0px 35px 50px -15px hsla(235, 19%, 80%, 0.5);
 }
