@@ -33,8 +33,8 @@ const Main = (props) => {
         <button type="button" className="main__buttons"></button>
         <input
           type="text"
-          className={`main__input main__input-${props.themeClass}
-          value={initialValue}`}
+          className={`main__input main__input-${props.themeClass}`}
+          value={initialValue}
           onChange={(e) => handleChange(e.target.value)}
           aria-label="create a new todo"
           placeholder="Create a new todo..."></input>
