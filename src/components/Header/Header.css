@@ -2,10 +2,10 @@ header {
   width: 50%;
   display: flex;
   justify-content: space-between;
-  margin: 4.375rem auto 2.5rem auto;
+  padding-top: 4.375rem;
 }
 
-.header__logo {
+.logo {
   font-family: var(--ff);
   font-weight: var(--fw-bold);
   color: hsla(0, 0%, 100%, 1);
@@ -15,7 +15,7 @@ header {
   text-transform: uppercase;
 }
 
-.header__theme {
+.theme {
   background-color: transparent;
   border: none;
 }

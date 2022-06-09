@@ -6,24 +6,18 @@ import './App.css';
 
 const App = () => {
   const [theme, setTheme] = useState(false);
-  const body = document.querySelector('body');
+  const themeClass = theme ? 'light' : 'dark';
 
   const handleChange = () => {
-    if (theme) {
-      setTheme(false);
-      body.classList.remove('light');
-    } else {
-      setTheme(true);
-      body.classList.add('light');
-    }
+    setTheme(theme ? false : true);
   };
 
   return (
-    <>
-      <Header theme={theme} handleChange={handleChange} />
-      <Main />
+    <div className={`content content-${themeClass}`}>
+      <Header themeClass={themeClass} handleChange={handleChange} />
+      <Main theme={theme} />
       <Footer />
-    </>
+    </div>
   );
 };
 

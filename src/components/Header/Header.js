@@ -5,9 +5,9 @@ import iconMoon from '../../assets/icon-moon.svg';
 const Header = (props) => {
   return (
     <header>
-      <h1 className="header__logo">todo</h1>
-      <button type="button" className="header__theme" onClick={() => props.handleChange()}>
-        <img src={props.theme === false ? iconSun : iconMoon} alt=""></img>
+      <h1 className="logo">todo</h1>
+      <button type="button" className="theme" onClick={() => props.handleChange()}>
+        <img className={`theme__image-${props.themeClass}`} src={props.themeClass === 'dark' ? iconSun : iconMoon} alt=""></img>
       </button>
     </header>
   );
