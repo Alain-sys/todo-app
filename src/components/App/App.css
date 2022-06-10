@@ -21,12 +21,12 @@ body {
   align-items: center;
 }
 
-.content-dark {
+.content_dark {
   background: top center/ contain no-repeat url(../../assets/bg-desktop-dark.jpg), hsla(235, 21%, 11%, 1);
   transition: 0.4s;
 }
 
-.content-light {
+.content_light {
   background: top center/ contain no-repeat url(../../assets/bg-desktop-light.jpg), hsla(0, 0%, 98%, 1);
   transition: 0.4s;
 }

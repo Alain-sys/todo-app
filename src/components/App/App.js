@@ -13,7 +13,7 @@ const App = () => {
   };
 
   return (
-    <div className={`content content-${themeClass}`}>
+    <div className={`content content_${themeClass}`}>
       <Header themeClass={themeClass} handleChange={handleChange} />
       <Main theme={theme} themeClass={themeClass} />
       <Footer />

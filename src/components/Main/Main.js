@@ -4,14 +4,14 @@ import './Main.css';
 const OutputFormSubmit = (props) => {
   const rows = props.formSubmit.map((element, index) => {
     return (
-      <div key={index}>
-        <button type="button"></button>
-        <p>{element}</p>
+      <div className="list__items" key={index}>
+        <input type="checkbox" className="list__checkbox" name="checkbox"></input>
+        <p className="list__text">{element}</p>
       </div>
     );
   });
 
-  return <div className={`main__output main__output-${props.themeClass}`}>{rows}</div>;
+  return <div className={`list list_${props.themeClass}`}>{rows}</div>;
 };
 
 const Main = (props) => {
@@ -23,17 +23,22 @@ const Main = (props) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    setFormSubmit([...formSubmit, initialValue]);
-    setInitialValue('');
+
+    if (initialValue !== '') {
+      setFormSubmit([...formSubmit, initialValue]);
+      setInitialValue('');
+    } else {
+      return;
+    }
   };
 
   return (
     <main>
-      <form className={`main__form main__form-${props.themeClass} `} onSubmit={onFormSubmit}>
-        <button type="button" className="main__buttons"></button>
+      <form className={`form form_${props.themeClass} `} onSubmit={onFormSubmit}>
+        <span className={`form__span form__span_${props.themeClass}`}></span>
         <input
           type="text"
-          className={`main__input main__input-${props.themeClass}`}
+          className={`form__input form__input_${props.themeClass}`}
           value={initialValue}
           onChange={(e) => handleChange(e.target.value)}
           aria-label="create a new todo"

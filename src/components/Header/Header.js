@@ -7,7 +7,7 @@ const Header = (props) => {
     <header>
       <h1 className="logo">todo</h1>
       <button type="button" className="theme" onClick={() => props.handleChange()}>
-        <img className={`theme__image-${props.themeClass}`} src={props.themeClass === 'dark' ? iconSun : iconMoon} alt=""></img>
+        <img className={`theme__image_${props.themeClass}`} src={props.themeClass === 'dark' ? iconSun : iconMoon} alt=""></img>
       </button>
     </header>
   );
