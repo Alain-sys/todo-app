@@ -5,8 +5,12 @@ const OutputFormSubmit = (props) => {
   const rows = props.formSubmit.map((element, index) => {
     return (
       <div className="list__items" key={index}>
-        <input type="checkbox" className="list__checkbox" name="checkbox"></input>
-        <p className="list__text">{element}</p>
+        <input
+          type="checkbox"
+          className={`list__checkbox list__checkbox_${props.themeClass}`}
+          onClick={(e) => props.removeCharacter(e.target, index)}
+          name="checkbox"></input>
+        <p className={`list__text list__text_${props.themeClass}`}>{element}</p>
       </div>
     );
   });
@@ -17,6 +21,13 @@ const OutputFormSubmit = (props) => {
 const Main = (props) => {
   const [initialValue, setInitialValue] = useState('');
   const [formSubmit, setFormSubmit] = useState([]);
+  const [checked, setChecked] = useState({
+    index: false,
+  });
+
+  console.log(checked);
+
+  console.log(formSubmit);
   const handleChange = (e) => {
     setInitialValue(e);
   };
@@ -32,6 +43,17 @@ const Main = (props) => {
     }
   };
 
+  const removeCharacter = (e, index) => {
+    const test = formSubmit;
+
+    setChecked({ ...checked, [index]: e.checked });
+    // setFormSubmit(
+    //   test.filter((character, i) => {
+    //     return i !== index;
+    //   })
+    // );
+  };
+
   return (
     <main>
       <form className={`form form_${props.themeClass} `} onSubmit={onFormSubmit}>
@@ -44,7 +66,7 @@ const Main = (props) => {
           aria-label="create a new todo"
           placeholder="Create a new todo..."></input>
       </form>
-      <OutputFormSubmit themeClass={props.themeClass} formSubmit={formSubmit} />
+      <OutputFormSubmit themeClass={props.themeClass} formSubmit={formSubmit} removeCharacter={removeCharacter} />
     </main>
   );
 };
