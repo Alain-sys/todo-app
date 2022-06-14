@@ -2,15 +2,19 @@ import { useState } from 'react';
 import './Main.css';
 
 const OutputFormSubmit = (props) => {
+  console.log(props.formSubmit);
   const rows = props.formSubmit.map((element, index) => {
     return (
       <div className="list__items" key={index}>
-        <input
-          type="checkbox"
-          className={`list__checkbox list__checkbox_${props.themeClass}`}
-          onClick={(e) => props.removeCharacter(e.target, index)}
-          name="checkbox"></input>
-        <p className={`list__text list__text_${props.themeClass}`}>{element}</p>
+        <label className={`list__label list__label_${props.themeClass} ${element.checked ? 'checked' : ''}`}>
+          <input
+            type="checkbox"
+            className={`list__checkbox list__checkbox_${props.themeClass}`}
+            onClick={() => props.functionChecked(index)}
+            name="checkbox"></input>
+          {element.text}
+        </label>
+        <button onClick={() => props.removeCharacter(index)}>test</button>
       </div>
     );
   });
@@ -19,15 +23,21 @@ const OutputFormSubmit = (props) => {
 };
 
 const Main = (props) => {
+  const todoItems = [
+    { text: 'Complete online JavaScript course', checked: true },
+    { text: 'Jog around the park 3x', checked: false },
+    { text: '10 minutes meditation', checked: false },
+    { text: 'Read for 1 hour', checked: false },
+    { text: 'Pick up groceries', checked: false },
+    { text: 'Complete Todo App on Frontend Mentor', checked: false },
+  ];
+
   const [initialValue, setInitialValue] = useState('');
-  const [formSubmit, setFormSubmit] = useState([]);
-  const [checked, setChecked] = useState({
-    index: false,
-  });
+  const [formSubmit, setFormSubmit] = useState(todoItems);
+  // const [checked, setChecked] = useState();
 
-  console.log(checked);
+  // console.log(formSubmit[0].checked);
 
-  console.log(formSubmit);
   const handleChange = (e) => {
     setInitialValue(e);
   };
@@ -36,22 +46,38 @@ const Main = (props) => {
     e.preventDefault();
 
     if (initialValue !== '') {
-      setFormSubmit([...formSubmit, initialValue]);
+      setFormSubmit([...formSubmit, { text: initialValue, checked: false }]);
       setInitialValue('');
     } else {
       return;
     }
   };
 
-  const removeCharacter = (e, index) => {
+  const functionChecked = (index) => {
+    let items = formSubmit;
+    console.log(items);
+    let item = items[index];
+    console.log(item);
+
+    item.text = 'test';
+
+    items[index] = item;
+
+    setFormSubmit(items);
+
+    // const t = e[0].classList;
+    // t.toggle('checked');
+    // setChecked({ ...checked, [index]: b.checked });
+  };
+
+  const removeCharacter = (index) => {
     const test = formSubmit;
 
-    setChecked({ ...checked, [index]: e.checked });
-    // setFormSubmit(
-    //   test.filter((character, i) => {
-    //     return i !== index;
-    //   })
-    // );
+    setFormSubmit(
+      test.filter((character, i) => {
+        return i !== index;
+      })
+    );
   };
 
   return (
@@ -66,7 +92,13 @@ const Main = (props) => {
           aria-label="create a new todo"
           placeholder="Create a new todo..."></input>
       </form>
-      <OutputFormSubmit themeClass={props.themeClass} formSubmit={formSubmit} removeCharacter={removeCharacter} />
+      <OutputFormSubmit
+        themeClass={props.themeClass}
+        formSubmit={formSubmit}
+        removeCharacter={removeCharacter}
+        // checked={checked}
+        functionChecked={functionChecked}
+      />
     </main>
   );
 };

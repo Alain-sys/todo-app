@@ -89,10 +89,36 @@ main {
 }
 
 .list__items {
+  padding-left: 24px;
+}
+
+.list__label {
   display: flex;
   align-items: center;
-  padding-left: 24px;
   gap: 24px;
+  font-weight: 400;
+  font-size: 1.125rem;
+  padding: 1.25em 0;
+  letter-spacing: -0.25px;
+  line-height: 18px;
+}
+
+.list__label_dark.checked {
+  color: hsla(233, 14%, 35%, 1);
+  text-decoration-line: line-through;
+}
+
+.list__label_light.checked {
+  color: hsla(233, 11%, 84%, 1);
+  text-decoration-line: line-through;
+}
+
+.list__label_dark {
+  color: hsla(235, 39%, 85%, 1);
+}
+
+.list__label_light {
+  color: hsla(235, 19%, 35%, 1);
 }
 
 .list__checkbox {
@@ -133,20 +159,4 @@ main {
 
 .list__checkbox:checked::before {
   background: center no-repeat url('../../assets/icon-check.svg'), linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-}
-
-.list__text {
-  font-weight: 400;
-  font-size: 1.125rem;
-  padding: 1.25em 0;
-  letter-spacing: -0.25px;
-  line-height: 18px;
-}
-
-.list__text_dark {
-  color: hsla(235, 39%, 85%, 1);
-}
-
-.list__text_light {
-  color: hsla(235, 19%, 35%, 1);
 }
