@@ -9,9 +9,11 @@ const OutputFormSubmit = (props) => {
         <label className={`list__label list__label_${props.themeClass} ${element.checked ? 'checked' : ''}`}>
           <input
             type="checkbox"
+            checked={element.checked}
             className={`list__checkbox list__checkbox_${props.themeClass}`}
-            onClick={() => props.functionChecked(index)}
-            name="checkbox"></input>
+            onChange={() => props.updateForm(index)}
+            name="checkbox"
+          />
           {element.text}
         </label>
         <button onClick={() => props.removeCharacter(index)}>test</button>
@@ -34,9 +36,6 @@ const Main = (props) => {
 
   const [initialValue, setInitialValue] = useState('');
   const [formSubmit, setFormSubmit] = useState(todoItems);
-  // const [checked, setChecked] = useState();
-
-  // console.log(formSubmit[0].checked);
 
   const handleChange = (e) => {
     setInitialValue(e);
@@ -53,21 +52,12 @@ const Main = (props) => {
     }
   };
 
-  const functionChecked = (index) => {
-    let items = formSubmit;
-    console.log(items);
-    let item = items[index];
-    console.log(item);
-
-    item.text = 'test';
-
+  const updateForm = (index) => {
+    let items = [...formSubmit];
+    let item = { ...items[index] };
+    item.checked = !item.checked;
     items[index] = item;
-
     setFormSubmit(items);
-
-    // const t = e[0].classList;
-    // t.toggle('checked');
-    // setChecked({ ...checked, [index]: b.checked });
   };
 
   const removeCharacter = (index) => {
@@ -90,15 +80,10 @@ const Main = (props) => {
           value={initialValue}
           onChange={(e) => handleChange(e.target.value)}
           aria-label="create a new todo"
-          placeholder="Create a new todo..."></input>
+          placeholder="Create a new todo..."
+        />
       </form>
-      <OutputFormSubmit
-        themeClass={props.themeClass}
-        formSubmit={formSubmit}
-        removeCharacter={removeCharacter}
-        // checked={checked}
-        functionChecked={functionChecked}
-      />
+      <OutputFormSubmit themeClass={props.themeClass} formSubmit={formSubmit} removeCharacter={removeCharacter} updateForm={updateForm} />
     </main>
   );
 };
