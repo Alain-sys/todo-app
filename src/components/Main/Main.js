@@ -1,11 +1,24 @@
 import { useState } from 'react';
 import './Main.css';
+import cross from '../../assets/icon-cross.svg';
 
 const OutputFormSubmit = (props) => {
-  console.log(props.formSubmit);
+  // console.log(props.formSubmit);
+  const animationHoverOn = (e) => {
+    e.style.opacity = '1';
+  };
+
+  const animationHoverOff = (e) => {
+    e.style.opacity = '0';
+  };
+
   const rows = props.formSubmit.map((element, index) => {
     return (
-      <div className="list__items" key={index}>
+      <div
+        className="list__items"
+        key={index}
+        onMouseEnter={(e) => animationHoverOn(e.currentTarget.childNodes[1])}
+        onMouseLeave={(e) => animationHoverOff(e.currentTarget.childNodes[1])}>
         <label className={`list__label list__label_${props.themeClass} ${element.checked ? 'checked' : ''}`}>
           <input
             type="checkbox"
@@ -16,7 +29,9 @@ const OutputFormSubmit = (props) => {
           />
           {element.text}
         </label>
-        <button onClick={() => props.removeCharacter(index)}>test</button>
+        <button className="list__delete" onClick={() => props.removeCharacter(index)}>
+          <img src={cross} alt="cross" />
+        </button>
       </div>
     );
   });
