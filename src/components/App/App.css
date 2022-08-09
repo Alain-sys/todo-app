@@ -26,12 +26,15 @@ input {
   align-items: center;
 }
 
-.content_dark {
+.content_theme_dark {
   background: top center/ contain no-repeat url(../../assets/bg-desktop-dark.jpg), hsla(235, 21%, 11%, 1);
-  transition: 0.4s;
 }
 
-.content_light {
+.content_theme_light {
   background: top center/ contain no-repeat url(../../assets/bg-desktop-light.jpg), hsla(0, 0%, 98%, 1);
-  transition: 0.4s;
+}
+
+.github-profile {
+  margin: 3rem 0;
+  color: hsla(220, 98%, 61%, 1);
 }

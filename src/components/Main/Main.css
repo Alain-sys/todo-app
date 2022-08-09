@@ -14,17 +14,17 @@ main {
   font-size: 1.125rem;
 }
 
-.form_dark {
+.form_theme_dark {
   background-color: hsla(235, 24%, 19%, 1);
   box-shadow: 0px 35px 50px -15px hsla(0, 0%, 0%, 0.5);
 }
 
-.form_light {
+.form_theme_light {
   background-color: hsla(0, 0%, 100%, 1);
   box-shadow: 0px 35px 50px -15px hsla(235, 19%, 80%, 0.5);
 }
 
-.form__span {
+.form__circle {
   width: 24px;
   height: 24px;
   border: 1px solid;
@@ -32,11 +32,11 @@ main {
   border-radius: 50%;
 }
 
-.form__span_dark {
+.form__circle_theme_dark {
   border-color: hsla(235, 14%, 26%, 1);
 }
 
-.form__span_light {
+.form__circle_theme_light {
   border-color: hsla(236, 32%, 92%, 1);
 }
 
@@ -53,41 +53,46 @@ main {
   outline: transparent;
 }
 
-.form__input_dark {
+.form__input_theme_dark {
   color: hsla(234, 39%, 85%, 1);
   background-color: hsla(235, 24%, 19%, 1);
 }
 
-.form__input_light {
+.form__input_theme_light {
   color: hsla(235, 14%, 26%, 1);
   background-color: hsla(0, 0%, 100%, 1);
 }
 
-.form__input_dark:placeholder {
+.form__input_theme_dark:placeholder {
   color: hsla(234, 11%, 52%, 1);
 }
 
-.form__input_light:placeholder {
+.form__input_theme_light:placeholder {
   color: hsla(235, 9%, 61%, 1);
 }
 
-.list {
+.todo {
   display: flex;
   flex-direction: column;
   border-radius: 5px;
 }
 
-.list_dark {
+.todo_theme_dark {
   background-color: hsla(235, 24%, 19%, 1);
   box-shadow: 0px 35px 50px -15px hsla(0, 0%, 0%, 0.5);
 }
 
-.list_light {
+.todo_theme_light {
   background-color: hsla(0, 0%, 100%, 1);
   box-shadow: 0px 35px 50px -15px hsla(235, 19%, 80%, 0.5);
 }
 
-.list__items {
+.todo-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-items {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -95,15 +100,55 @@ main {
   padding: 0 24px;
 }
 
-.list__items-dark {
+.todo-items_theme_dark {
   border-bottom: 1px solid hsla(235, 14%, 26%, 1);
 }
 
-.list__items-light {
+.todo-items_theme_light {
   border-bottom: 1px solid hsla(236, 32%, 92%, 1);
 }
 
-.list__label {
+.todo-items__checkbox {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.todo-items__checkbox_theme_dark {
+  background-color: hsla(235, 14%, 26%, 1);
+}
+
+.todo-items__checkbox_theme_light {
+  background-color: hsla(236, 32%, 92%, 1);
+}
+
+.todo-items__checkbox:hover {
+  background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.todo-items__checkbox::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  margin: 1px;
+}
+
+.todo-items__checkbox_theme_dark::before {
+  background-color: hsla(235, 24%, 19%, 1);
+}
+
+.todo-items__checkbox_theme_light::before {
+  background-color: hsla(0, 0%, 100%, 1);
+}
+
+.todo-items__checkbox:checked::before {
+  background: center no-repeat url('../../assets/icon-check.svg'), linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.todo-items__label {
   width: 90%;
   font-weight: 400;
   font-size: 1.125rem;
@@ -114,65 +159,25 @@ main {
   word-break: break-word;
 }
 
-.list__label_dark.checked {
+.todo-items__label_theme_dark {
+  color: hsla(235, 39%, 85%, 1);
+}
+
+.todo-items__label_theme_light {
+  color: hsla(235, 19%, 35%, 1);
+}
+
+.todo-items__label_theme_dark.checked {
   color: hsla(233, 14%, 35%, 1);
   text-decoration-line: line-through;
 }
 
-.list__label_light.checked {
+.todo-items__label_theme_light.checked {
   color: hsla(233, 11%, 84%, 1);
   text-decoration-line: line-through;
 }
 
-.list__label_dark {
-  color: hsla(235, 39%, 85%, 1);
-}
-
-.list__label_light {
-  color: hsla(235, 19%, 35%, 1);
-}
-
-.list__checkbox {
-  appearance: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  position: relative;
-}
-
-.list__checkbox_dark {
-  background-color: hsla(235, 14%, 26%, 1);
-}
-
-.list__checkbox_light {
-  background-color: hsla(236, 32%, 92%, 1);
-}
-
-.list__checkbox:hover {
-  background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-}
-
-.list__checkbox::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  margin: 1px;
-}
-
-.list__checkbox_dark::before {
-  background-color: hsla(235, 24%, 19%, 1);
-}
-
-.list__checkbox_light::before {
-  background-color: hsla(0, 0%, 100%, 1);
-}
-
-.list__checkbox:checked::before {
-  background: center no-repeat url('../../assets/icon-check.svg'), linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-}
-
-.list__delete {
+.todo-items__delete {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -182,61 +187,69 @@ main {
   height: 18px;
 }
 
-.status-items {
+.todo-filters {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 1rem 0;
-  padding: 0 24px;
+  align-items: center;
+  padding: 1rem 24px;
 }
 
-.status-items__span {
+.todo-filters__items-left {
   font-size: 0.875rem;
 }
 
-.status-items__span-dark {
+.todo-filters__items-left_theme_dark {
   color: hsla(235, 16%, 42%, 1);
 }
 
-.status-items__span-light {
+.todo-filters__items-left_theme_light {
   color: hsla(235, 9%, 61%, 1);
 }
 
-.status-items__buttons {
+.todo-filters__status {
   display: flex;
   gap: 18px;
   margin-left: auto;
   margin-right: 50px;
 }
 
-.status-items__status {
+.todo-filters__status-buttons {
   border: none;
   background-color: transparent;
   cursor: pointer;
   font-size: 0.875rem;
+  font-weight: 700;
 }
 
-.status-items__status-dark {
+.todo-filters__status-buttons_theme_dark {
   color: hsla(235, 16%, 42%, 1);
 }
 
-.status-items__status-light {
+.todo-filters__status-buttons_theme_light {
   color: hsla(235, 9%, 61%, 1);
 }
 
-.status-items__status-dark:hover {
+.todo-filters__status-buttons_theme_dark:hover {
   color: hsla(236, 32%, 92%, 1);
 }
 
-.status-items__status-light:hover {
+.todo-filters__status-buttons_theme_light:hover {
   color: hsla(235, 19%, 35%, 1);
 }
 
-.btn-1 {
-  font-weight: 700;
+.todo-filters__status-buttons.active {
   color: hsla(220, 98%, 61%, 1);
 }
 
-.btn-2 {
-  font-weight: 700;
+@media (max-width: 1100px) {
+  main {
+    width: 65%;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    width: 85%;
+  }
 }
