@@ -2,11 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import './Main.css';
 import TodoList from './TodoList';
-import TodoFilters from './TodoFilters';
+import TodoFiltersStatus from './TodoFiltersStatus';
+import useMediaQueries from './MediaQueries';
 
 let nextId = 6;
 
-const Main = (props) => {
+const Main = ({ themeClass }) => {
   const [newTodoItem, setNewTodoItem] = useState('');
   const [todoItems, setTodoItems] = useState([
     { id: 0, text: 'Complete online JavaScript course', checked: true },
@@ -46,30 +47,32 @@ const Main = (props) => {
   };
 
   const countItemsLeft = todoItems.filter((it) => !it.checked).length;
+  const mobileSize = useMediaQueries('(max-width: 768px)');
 
   return (
     <main>
-      <form className={`form form_theme_${props.themeClass} `} onSubmit={onFormSubmit}>
-        <span className={`form__circle form__circle_theme_${props.themeClass}`}></span>
+      <form className={`form form_theme_${themeClass} `} onSubmit={onFormSubmit}>
+        <span className={`form__circle form__circle_theme_${themeClass}`}></span>
         <input
           type="text"
-          className={`form__input form__input_theme_${props.themeClass}`}
+          className={`form__input form__input_theme_${themeClass}`}
           value={newTodoItem}
           onChange={(e) => setNewTodoItem(e.target.value)}
           aria-label="create a new todo"
           placeholder="Create a new todo..."
         />
       </form>
-      <div className={`todo todo_theme_${props.themeClass}`}>
-        <TodoList themeClass={props.themeClass} todoItems={todoItems} todoFilter={todoFilter} updateItem={updateItem} removeItem={removeItem} />
-        <TodoFilters
-          themeClass={props.themeClass}
-          setTodoFilter={setTodoFilter}
-          countItemsLeft={countItemsLeft}
-          removeCompletedItems={removeCompletedItems}
-          todoFilter={todoFilter}
-        />
+      <div className={`todo todo_theme_${themeClass}`}>
+        <TodoList themeClass={themeClass} todoItems={todoItems} todoFilter={todoFilter} updateItem={updateItem} removeItem={removeItem} />
+        <div className="todo-filters">
+          <span className={`todo-filters__items-left todo-filters__items-left_theme_${themeClass}`}>{countItemsLeft} items left</span>
+          {!mobileSize && <TodoFiltersStatus todoFilter={todoFilter} setTodoFilter={setTodoFilter} themeClass={themeClass} />}
+          <button className={`todo-filters__status-buttons todo-filters__status-buttons_theme_${themeClass}`} onClick={() => removeCompletedItems()}>
+            Clear Completed
+          </button>
+        </div>
       </div>
+      {mobileSize && <TodoFiltersStatus todoFilter={todoFilter} setTodoFilter={setTodoFilter} themeClass={themeClass} />}
     </main>
   );
 };

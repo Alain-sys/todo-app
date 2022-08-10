@@ -24,6 +24,8 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
+  width: 100vw;
 }
 
 .content_theme_dark {
@@ -34,7 +36,40 @@ input {
   background: top center/ contain no-repeat url(../../assets/bg-desktop-light.jpg), hsla(0, 0%, 98%, 1);
 }
 
+.attribution {
+  width: 65%;
+  margin: 3.5rem 0;
+  text-align: center;
+}
+
+.attribution_theme_dark {
+  color: hsla(235, 39%, 85%, 1);
+}
+.attribution_theme_light {
+  color: hsla(235, 19%, 35%, 1);
+}
+
 .github-profile {
-  margin: 3rem 0;
   color: hsla(220, 98%, 61%, 1);
+}
+
+@media (max-width: 768px) {
+  .content_theme_dark {
+    background: top center/ contain no-repeat url(../../assets/bg-mobile-dark.jpg), hsla(235, 21%, 11%, 1);
+  }
+
+  .content_theme_light {
+    background: top center/ contain no-repeat url(../../assets/bg-mobile-light.jpg), hsla(0, 0%, 98%, 1);
+  }
+
+  .attribution {
+    width: 85%;
+  }
+}
+
+@media (max-width: 375px) {
+  .attribution {
+    width: 90%;
+    font-size: 0.875rem;
+  }
 }

@@ -15,11 +15,19 @@ const App = () => {
   return (
     <div className={`content content_theme_${themeClass}`}>
       <Header themeClass={themeClass} handleChange={handleChange} />
-      <Main theme={theme} themeClass={themeClass} />
-
-      <a className={`github-profile`} href="https://github.com/Alain-sys">
-        My Github Profile
-      </a>
+      <Main themeClass={themeClass} />
+      <section className={`attribution attribution_theme_${themeClass}`}>
+        <p>
+          Challenge by {''}
+          <a className="github-profile" href="https://www.frontendmentor.io/">
+            Frontend Mentor
+          </a>
+          . Coded by {''}
+          <a className="github-profile" href="https://github.com/Alain-sys">
+            Alain-sys
+          </a>
+        </p>
+      </section>
     </div>
   );
 };

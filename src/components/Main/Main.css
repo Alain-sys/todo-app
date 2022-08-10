@@ -11,7 +11,6 @@ main {
   padding-left: 24px;
   gap: 24px;
   border-radius: 5px;
-  font-size: 1.125rem;
 }
 
 .form_theme_dark {
@@ -126,6 +125,7 @@ main {
 
 .todo-items__checkbox:hover {
   background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  cursor: pointer;
 }
 
 .todo-items__checkbox::before {
@@ -251,5 +251,51 @@ main {
 @media (max-width: 768px) {
   main {
     width: 85%;
+  }
+
+  .todo-filters__status {
+    justify-content: center;
+    margin: 1rem 0;
+    padding: 1rem 80px;
+    background-color: hsla(235, 24%, 19%, 1);
+    box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 375px) {
+  main {
+    width: 90%;
+  }
+
+  .form {
+    margin: 2.5rem 0 1rem 0;
+  }
+
+  .form__circle {
+    width: 20px;
+    height: 20px;
+  }
+
+  .form__input {
+    font-size: 0.75rem;
+  }
+
+  .todo-items {
+    padding: 0 20px;
+    gap: 12px;
+  }
+
+  .todo-items__checkbox {
+    width: 20px;
+    height: 20px;
+  }
+
+  .todo-items__label {
+    font-size: 0.75rem;
+  }
+
+  .todo-filters__items-left {
+    font-size: 12px;
   }
 }

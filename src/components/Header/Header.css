@@ -29,5 +29,10 @@ header {
 @media (max-width: 768px) {
   header {
     width: 85%;
+    padding-top: 3rem;
+  }
+
+  .logo {
+    font-size: 2rem;
   }
 }
