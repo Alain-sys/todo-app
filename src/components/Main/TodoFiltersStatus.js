@@ -2,7 +2,7 @@ import React from 'react';
 
 const TodoFiltersStatus = ({ todoFilter, setTodoFilter, themeClass }) => {
   return (
-    <div className="todo-filters__status">
+    <div className={`todo-filters__status todo-filters__status_theme_${themeClass}`}>
       <button
         className={`todo-filters__status-buttons  todo-filters__status-buttons_theme_${themeClass}  ${todoFilter === 'all' ? 'active' : ''}`}
         onClick={() => setTodoFilter('all')}>
