@@ -36,8 +36,8 @@ Users should be able to:
 <details> 
 <summary>Desktop</summary>
 <p align="center">
-  <img src="public/assets/todo-app-dekstop-dark.png" alt="todo app in desktop with the dark theme"/>
-  <img src="public/assets/todo-app-dekstop-light.png" alt="todo app in desktop with the light theme"/>
+  <img src="public/assets/todo-app-desktop-dark.png" alt="todo app in desktop with the dark theme"/>
+  <img src="public/assets/todo-app-desktop-light.png" alt="todo app in desktop with the light theme"/>
 </p>
 </details>
 
