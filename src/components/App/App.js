@@ -16,7 +16,7 @@ const App = () => {
     <div className={`content content_theme_${themeClass}`}>
       <Header themeClass={themeClass} handleChange={handleChange} />
       <Main themeClass={themeClass} />
-      <div className={`attribution attribution_theme_${themeClass}`}>
+      <footer className={`attribution attribution_theme_${themeClass}`}>
         <p>
           Challenge by {''}
           <a className="github-profile" href="https://www.frontendmentor.io/">
@@ -27,7 +27,7 @@ const App = () => {
             Alain-sys
           </a>
         </p>
-      </div>
+      </footer>
     </div>
   );
 };
