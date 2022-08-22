@@ -27,7 +27,7 @@ const TodoItem = ({ item, themeClass, updateItem, removeItem }) => {
       <label htmlFor={item.id} className={`todo-items__label todo-items__label_theme_${themeClass} ${item.checked ? 'checked' : ''}`}>
         {item.text}
       </label>
-      <button className="todo-items__delete" onClick={() => removeItem(item.id)}>
+      <button className="todo-items__delete" onClick={() => removeItem(item.id)} type="button">
         <img src={cross} alt="grey cross" />
       </button>
     </div>

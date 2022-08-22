@@ -67,7 +67,10 @@ const Main = ({ themeClass }) => {
         <div className="todo-filters">
           <span className={`todo-filters__items-left todo-filters__items-left_theme_${themeClass}`}>{countItemsLeft} items left</span>
           {!mobileSize && <TodoFiltersStatus todoFilter={todoFilter} setTodoFilter={setTodoFilter} themeClass={themeClass} />}
-          <button className={`todo-filters__status-buttons todo-filters__status-buttons_theme_${themeClass}`} onClick={() => removeCompletedItems()}>
+          <button
+            className={`todo-filters__status-buttons todo-filters__status-buttons_theme_${themeClass}`}
+            onClick={() => removeCompletedItems()}
+            type="button">
             Clear Completed
           </button>
         </div>
