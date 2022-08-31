@@ -47,7 +47,7 @@ Users should be able to:
     <img src="public/assets/todo-app-mobile-dark.png" alt="todo app in mobile with the dark theme"/>
     <img src="public/assets/todo-app-mobile-light.png" alt="todo app in mobile with the light theme"/>
   </p>
-</details
+</details>
 
 ### Links
 
